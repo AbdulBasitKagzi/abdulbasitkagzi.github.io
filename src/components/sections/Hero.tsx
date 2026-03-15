@@ -87,7 +87,7 @@ export function Hero() {
                 whileTap={{ scale: 0.95 }}
                 asChild
               >
-                <a href="/resume.pdf" download>
+                <a href="resume.pdf" download>
                   Download CV
                   <Download className="ml-2 h-4 w-4" />
                 </a>
