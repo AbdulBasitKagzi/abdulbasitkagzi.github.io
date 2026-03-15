@@ -26,7 +26,7 @@ import Image from "next/image";
 interface Project {
   name: string;
   description: string;
-  tech: string[];
+  tech: { name: string; icon: string }[];
   icon: React.ReactNode;
   features: string[];
   playStore?: string;
@@ -39,7 +39,11 @@ const projects: Project[] = [
     name: "Eatvisor",
     description:
       "Nutrition & Health Management App featuring diet tracking, doctor/client roles, and real-time data sync.",
-    tech: ["React Native", "Supabase", "Real-time Sync"],
+    tech: [
+      { name: "React Native", icon: "devicon-react-original colored" },
+      { name: "Supabase", icon: "devicon-supabase-plain colored" },
+      { name: "Real-time Sync", icon: "" },
+    ],
     icon: <Smartphone className="h-6 w-6 text-primary" />,
     features: [
       "Diet tracking",
@@ -56,7 +60,12 @@ const projects: Project[] = [
     name: "JhaPay",
     description:
       "Digital Payments App with QR code payments, restaurant wallet, and Stripe integration.",
-    tech: ["React Native", "Supabase", "Stripe", "Biometric"],
+    tech: [
+      { name: "React Native", icon: "devicon-react-original colored" },
+      { name: "Supabase", icon: "devicon-supabase-plain colored" },
+      { name: "Stripe", icon: "" },
+      { name: "Biometric", icon: "" },
+    ],
     icon: <CreditCard className="h-6 w-6 text-secondary" />,
     features: ["QR code payments", "Restaurant wallet", "Stripe integration"],
     playStore:
@@ -68,7 +77,11 @@ const projects: Project[] = [
     name: "Boxio",
     description:
       "Club Event & Ticketing Platform with event booking, discovery, and rewards system.",
-    tech: ["React Native", "UI/UX", "Payment Gateway"],
+    tech: [
+      { name: "React Native", icon: "devicon-react-original colored" },
+      { name: "UI/UX", icon: "devicon-figma-plain colored" },
+      { name: "Payment Gateway", icon: "" },
+    ],
     icon: <Calendar className="h-6 w-6 text-accent" />,
     features: ["Event ticket booking", "Club discovery", "Rewards system"],
     playStore:
@@ -80,7 +93,11 @@ const projects: Project[] = [
     name: "Lompa",
     description:
       "Reels-based E-Commerce Platform with product tagging in videos and real-time chat.",
-    tech: ["React Native", "GraphQL", "Real-time Chat"],
+    tech: [
+      { name: "React Native", icon: "devicon-react-original colored" },
+      { name: "GraphQL", icon: "devicon-graphql-plain colored" },
+      { name: "Real-time Chat", icon: "" },
+    ],
     icon: <ShoppingBag className="h-6 w-6 text-primary" />,
     features: ["Reels-based shopping", "Product tagging", "Order management"],
     playStore:
@@ -114,9 +131,10 @@ export function Projects() {
                       <Badge
                         key={i}
                         variant="secondary"
-                        className="text-[10px]"
+                        className="text-[10px] flex items-center gap-1 cursor-default"
                       >
-                        {t}
+                        {t.icon && <i className={`${t.icon} text-xs`} />}
+                        {t.name}
                       </Badge>
                     ))}
                   </div>
@@ -153,7 +171,7 @@ export function Projects() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors py-1 px-2 rounded-md bg-muted/50 hover:bg-primary/5"
                       >
-                        <Play size={12} fill="currentColor" />
+                        <i className="fab fa-google-play" />
                         Play Store
                       </a>
                     )}
@@ -164,7 +182,7 @@ export function Projects() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground hover:text-secondary transition-colors py-1 px-2 rounded-md bg-muted/50 hover:bg-secondary/5"
                       >
-                        <Apple size={12} fill="currentColor" />
+                        <i className="devicon-apple-original dark:text-white text-sm" />
                         App Store
                       </a>
                     )}

@@ -20,7 +20,13 @@ export function Section({
   containerClassName,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("py-6 lg:py-12 overflow-hidden", className)}>
+    <section
+      id={id}
+      className={cn(
+        "py-6 lg:py-12 overflow-hidden scroll-mt-20 md:scroll-mt-24",
+        className,
+      )}
+    >
       <div className={cn("container mx-auto px-4 md:px-6", containerClassName)}>
         {(title || subtitle) && (
           <div className="flex flex-col items-center text-center mb-8 md:mb-12">

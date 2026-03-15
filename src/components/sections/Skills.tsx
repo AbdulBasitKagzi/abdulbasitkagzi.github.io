@@ -9,32 +9,55 @@ const skillCategories = [
   {
     title: "Frontend Mobile",
     icon: <Smartphone className="h-6 w-6 text-primary" />,
-    skills: ["React Native", "JavaScript", "TypeScript", "React Navigation"],
+    skills: [
+      { name: "React Native", icon: "devicon-react-original colored" },
+      { name: "JavaScript", icon: "devicon-javascript-plain colored" },
+      { name: "TypeScript", icon: "devicon-typescript-plain colored" },
+      { name: "React Navigation", icon: "devicon-react-original colored" },
+    ],
   },
   {
     title: "Backend & Data",
     icon: <Database className="h-6 w-6 text-secondary" />,
-    skills: ["Supabase", "GraphQL", "REST APIs", "SQL"],
+    skills: [
+      { name: "Supabase", icon: "devicon-supabase-plain colored" },
+      { name: "GraphQL", icon: "devicon-graphql-plain colored" },
+      { name: "REST APIs", icon: "" },
+      { name: "SQL", icon: "devicon-azuresqldatabase-plain colored" },
+    ],
   },
   {
     title: "Development Tools",
     icon: <Zap className="h-6 w-6 text-accent" />,
-    skills: ["Git", "Postman", "Figma", "Firebase"],
+    skills: [
+      { name: "Git", icon: "devicon-git-plain colored" },
+      { name: "Postman", icon: "devicon-postman-plain colored" },
+      { name: "Figma", icon: "devicon-figma-plain colored" },
+      { name: "Firebase", icon: "devicon-firebase-plain colored" },
+    ],
   },
   {
     title: "Other Skills",
     icon: <Layers className="h-6 w-6 text-primary" />,
     skills: [
-      "Redux / Context API",
-      "Styling (CSS, Tailwind)",
-      "Next.js",
-      "App Deployment",
+      { name: "Redux / Context API", icon: "devicon-redux-original colored" },
+      {
+        name: "Styling (CSS, Tailwind)",
+        icon: "devicon-tailwindcss-original colored",
+      },
+      { name: "Next.js", icon: "devicon-nextjs-original dark:text-white" },
+      { name: "App Deployment", icon: "" },
     ],
   },
   {
     title: "AI Tools",
     icon: <Zap className="h-6 w-6 text-yellow-500" />,
-    skills: ["Cursor", "Antigravity", "Claude", "ChatGPT"],
+    skills: [
+      { name: "Cursor", icon: "devicon-vscode-plain colored" },
+      { name: "Antigravity", icon: "devicon-google-plain colored" },
+      { name: "Claude", icon: "fa-brands fa-claude" },
+      { name: "ChatGPT", icon: "devicon-codeigniter-plain colored" },
+    ],
   },
 ];
 
@@ -78,9 +101,10 @@ export function Skills() {
                 {category.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-3 py-1 text-xs font-semibold rounded-full bg-background border border-border group-hover:border-primary/30 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-background border border-border group-hover:border-primary/30 transition-colors"
                   >
-                    {skill}
+                    {skill.icon && <i className={`${skill.icon} text-sm`} />}
+                    {skill.name}
                   </span>
                 ))}
               </div>

@@ -3,14 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button, MotionButton } from "@/components/ui/Button";
-import {
-  ArrowRight,
-  Download,
-  Code2,
-  Smartphone,
-  Cpu,
-  Globe,
-} from "lucide-react";
+import { ArrowRight, Code2, Download } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -106,12 +99,20 @@ export function Hero() {
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="h-10 w-10 rounded-full border-2 border-background bg-muted flex items-center justify-center"
+                    className="h-10 w-10 rounded-full border-2 border-background bg-muted flex items-center justify-center bg-background"
                   >
-                    {i === 1 && <Smartphone className="h-5 w-5" />}
-                    {i === 2 && <Cpu className="h-5 w-5" />}
-                    {i === 3 && <Globe className="h-5 w-5" />}
-                    {i === 4 && <Code2 className="h-5 w-5" />}
+                    {i === 1 && (
+                      <i className="devicon-react-original colored text-xl" />
+                    )}
+                    {i === 2 && (
+                      <i className="devicon-apple-original text-xl dark:text-white" />
+                    )}
+                    {i === 3 && (
+                      <i className="devicon-android-plain colored text-xl" />
+                    )}
+                    {i === 4 && (
+                      <i className="devicon-typescript-plain colored text-xl" />
+                    )}
                   </div>
                 ))}
               </div>
@@ -126,7 +127,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative order-1 lg:order-2 w-full max-w-[300px] sm:max-w-[400px] lg:max-w-none mx-auto lg:mx-0"
+            className="relative order-1 lg:order-2 w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] xl:max-w-[460px] mx-auto lg:ml-auto"
           >
             <div className="relative z-10 w-full aspect-square rounded-3xl overflow-hidden border border-border bg-gradient-to-br from-muted/50 to-background flex items-center justify-center shadow-2xl">
               <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/50" />
@@ -150,7 +151,7 @@ export function Hero() {
                 }}
                 className="absolute top-6 left-4 sm:top-8 sm:left-6 lg:top-10 lg:left-10 p-2 sm:p-3 lg:p-4 rounded-2xl bg-background shadow-lg border border-border"
               >
-                <Smartphone className="h-8 w-8 sm:h-8 sm:w-8 lg:h-8 lg:w-8 text-primary" />
+                <i className="devicon-react-original colored text-3xl sm:text-4xl lg:text-4xl" />
               </motion.div>
               <motion.div
                 animate={{ y: [0, 20, 0] }}
